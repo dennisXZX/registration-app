@@ -6,3 +6,14 @@ button {
     font-size: 1.9em;
     padding: 20px;
 }
+
+#guestList {
+    border: 1px solid lightblue;
+    margin: 0 auto;
+}
+
+#guestList tr td {
+    width: 200px;
+    padding: 15px;
+    border-bottom: 1px solid lightblue;
+}

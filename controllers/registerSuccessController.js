@@ -14,7 +14,7 @@ module.exports = function(app) {
     app.post('/register-success', urlencodedParser, function(req, res) {
 
         // create an object
-        let registrant = new Registrant({ name: req.body.name, nationality: req.body.nationality, occupation: req.body.occupation });
+        let registrant = Registrant({ name: req.body.name, nationality: req.body.nationality, occupation: req.body.occupation });
 
         // save the object to database
         registrant.save(function (err) {

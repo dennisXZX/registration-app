@@ -28,8 +28,48 @@
         </div>
     </div>      
 
+<!--
+   [ { _id: 5852610a058122047376e9ff,
+    name: 'Dennis',
+    nationality: 'China',
+    occupation: 'Developer',
+    __v: 0 },
+  { _id: 585261ab4cb8c70583bbbab3,
+    name: 'Zoe',
+    nationality: 'China',
+    occupation: 'Developer',
+    __v: 0 } ]
+-->
     <div class="row">
-        <div class="col-md-3"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+          <table id="guestList">
+            <tr>
+              <td>Name</td>
+              <td>Country</td>
+              <td>Occupation</td>
+            </tr>
+            <% for(let i=0; i<registrants.length; i++){ %>
+              <tr>  
+                  <td><%= registrants[i].name %></td> 
+                  <td><%= registrants[i].nationality %></td>
+                  <td><%= registrants[i].occupation %></td>
+              </tr>
+            <% } %>
+          </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-xl-0 col-md-3"></div>
+        <div class="col-xl-12 col-md-3 text-center">
+            <a href="/" class="btn btn-default">Go back to home page</a>
+        </div>
+        <div class="col-xl-12 col-md-3 text-center">
+            <a href="/register" class="btn btn-default">Register as a guest</a>
+        </div>
+        <div class="col-xl-0 col-md-3"></div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
