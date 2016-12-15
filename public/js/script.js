@@ -2,6 +2,9 @@ $(document).ready(function(){
 
     $("#registrationForm").submit(function(){
 
+        // prevent the default form submit button action
+        // event.preventDefault();
+
         // retrieve the input values from the form
         const name = $("#name").val();
         const nationality = $("#nationality").val();

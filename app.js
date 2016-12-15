@@ -1,6 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
+
+mongoose.Promise = global.Promise;
+
+// connect to mongoDB database
+const DB_URL = 'mongodb://test:test@ds133338.mlab.com:33338/customer_addressbook';
+mongoose.connect(DB_URL);
 
 // require controllers
 const homeController = require('./controllers/homeController');

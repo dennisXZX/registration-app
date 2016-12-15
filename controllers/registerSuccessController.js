@@ -1,19 +1,18 @@
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Registrant = require('../public/models/user_model');
+const Registrant = require('../db/user_model');
 
-// create application/x-www-form-urlencoded parser 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
 
-    app.post('/register-success', urlencodedParser, function(req, res){
-
-        // connect to mongoDB database
-        mongoose.createConnection('mongodb://test:test@ds133338.mlab.com:33338/customer_addressbook');
+    app.post('/register-success', urlencodedParser, function(req, res) {
 
         // create an object
         let registrant = new Registrant({ name: req.body.name, nationality: req.body.nationality, occupation: req.body.occupation });
+        
+        console.log(registrant);
 
         // save the object to database
         registrant.save(function (err) {
@@ -22,10 +21,7 @@ module.exports = function(app) {
             } else {
                 console.log('data saved!');
             }
-        });    
-
-        // close the database connection
-        mongoose.connection.close();
+        });
 
         res.render('register-success');
 
