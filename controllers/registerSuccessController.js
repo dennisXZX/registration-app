@@ -7,12 +7,14 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
 
+    app.get('/register-success', function(req, res){
+        res.render('register-success');
+    });
+
     app.post('/register-success', urlencodedParser, function(req, res) {
 
         // create an object
         let registrant = new Registrant({ name: req.body.name, nationality: req.body.nationality, occupation: req.body.occupation });
-        
-        console.log(registrant);
 
         // save the object to database
         registrant.save(function (err) {

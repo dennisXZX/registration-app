@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#registrationForm").submit(function(){
 
         // prevent the default form submit button action
-        // event.preventDefault();
+        event.preventDefault();
 
         // retrieve the input values from the form
         const name = $("#name").val();
@@ -15,6 +15,9 @@ $(document).ready(function(){
             method: "POST",
             url: "register-success",
             data: { name: name, nationality: nationality, occupation: occupation}
+
+        }).done(function(result){
+                window.location.replace('register-success');
         });
 
     });
